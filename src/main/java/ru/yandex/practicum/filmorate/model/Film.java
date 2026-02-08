@@ -1,12 +1,12 @@
 package ru.yandex.practicum.filmorate.model;
 
 import jakarta.validation.constraints.*;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import ru.yandex.practicum.filmorate.annotation.MinReleaseDate;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Film.
@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @Data
 @EqualsAndHashCode(of = {"id"})
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor(onConstructor_ = @__(@Builder))
 public class Film {
     @Builder.Default
     Long id = 0L;
@@ -25,4 +27,6 @@ public class Film {
     LocalDate releaseDate;
     @Positive
     Long duration;
+    @Builder.Default
+    Set<Long> likes = new HashSet<>();
 }
