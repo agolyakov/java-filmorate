@@ -55,6 +55,18 @@ public class FilmService {
                 .toList();
     }
 
+    public Film create(Film film) {
+        return inMemoryFilmStorage.create(film);
+    }
+
+    public Film update(Film film) {
+        return inMemoryFilmStorage.update(film);
+    }
+
+    public Collection<Film> findAll() {
+        return inMemoryFilmStorage.findAll();
+    }
+
     private void addLikes(Film film, User user) {
         film.getLikes().add(user.getId());
         user.getLikes().add(film.getId());

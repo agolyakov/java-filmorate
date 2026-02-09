@@ -64,6 +64,22 @@ public class UserService {
                 .toList();
     }
 
+    public User create(User user) {
+        return inMemoryUserStorage.create(user);
+    }
+
+    public User update(User user) {
+        return inMemoryUserStorage.update(user);
+    }
+
+    public Collection<User> findAll() {
+        return inMemoryUserStorage.findAll();
+    }
+
+    public Collection<User> findAllFriends(long userId) {
+        return inMemoryUserStorage.findAllFriends(userId);
+    }
+
     private void addToFriends(User user, long friendId) {
         user.getFriends().add(friendId);
     }
