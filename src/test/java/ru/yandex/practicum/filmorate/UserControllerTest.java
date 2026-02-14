@@ -129,7 +129,7 @@ public class UserControllerTest {
                 .email("test@hello.com")
                 .login("login")
                 .name("name")
-                .birthday(LocalDate.of(2025,12,22))
+                .birthday(LocalDate.now().plusDays(1))
                 .build();
 
         ResponseEntity<User> entity = template.postForEntity("/users", user, User.class);
